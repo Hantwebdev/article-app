@@ -1,8 +1,7 @@
 import { gql } from "apollo-server-express";
 
-// typeDefs: định nghĩa các trường dữ liệu mà cho phép fontend lấy
+
 export const typeDefsArticle = gql` 
-        # định nghĩa những trường thông tin cho phép lấy về
         type Article {
             id: ID,
             title: String,
@@ -11,7 +10,6 @@ export const typeDefsArticle = gql`
             category: Category
         }
 
-        # Query: viết những hàm cho phép truy vấn ra data
         type Query { 
             getListArticle(
                 sortKey: String, 
@@ -25,7 +23,6 @@ export const typeDefsArticle = gql`
             getArticle(id: ID): Article,
         }
 
-        # định nghĩa những trường data cho phép gửi lên
         input ArticleInput {
             title: String,
             avatar: String,
@@ -33,7 +30,6 @@ export const typeDefsArticle = gql`
             categoryId: String
         }
 
-        #Mutation: viết những hàm cho phép gửi data lên, để thêm sửa xoá data 
         type Mutation {
             createArticle(article: ArticleInput): Article,
             updateArticle(id: ID, article: ArticleInput): Article,
